@@ -28,7 +28,8 @@ document.getElementById('vote-count').textContent = `Votes: ${character.votes}`
 const form = document.getElementById('votes-form')
 form.addEventListener ('submit', (e) => {
   e.preventDefault()
-  const currentVotes = (document.getElementById('vote-count').textContent)
+  const currentVotesText = document.getElementById('vote-count').textContent
+  const currentVotes = parseInt(currentVotesText.replace('Votes: ', ''))
   const additionalVotes = parseInt(document.getElementById('votes').value)
   const newTotalVotes = currentVotes + additionalVotes
   document.getElementById('vote-count').textContent = newTotalVotes
